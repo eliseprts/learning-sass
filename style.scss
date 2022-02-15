@@ -1,49 +1,41 @@
-html {
-  font-size: (12/16) * 1em;
+body {
+  background-color: black;
 }
-.foo {
-  background: orange;
-  p {
-    color: blue;
-    font: {
-      family: arial;
-      weight: bold;
-      size: 2em;
-    }
-  }
-  &.block {
-    border: 1px solid;
-  }
-}
-a {
-  color: blue;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-$border-color: #ccc;
-.box {
-  border: 1px solid $border-color;
-}
-// Extending classes
-$standard-border-color: gray;
-$winning-border-color: green;
-.user-dialog-box {
-  border: 10px solid $standard-border-color;
+@mixin button {
+  border: 3px solid white;
+  color: white;
+  text-align: center;
   padding: 10px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  margin: 50px;
+  width: fit-content;
 }
-.alert-winning-user {
-  @extend .user-dialog-box;
-  border-color: $winning-border-color;
+
+.button1 {
+  @include button;
+  transition: all 1s linear;
+  &:hover,
+  &:focus {
+    color: black;
+    background-color: white;
+  }
 }
-// Mixins
-@mixin dialog-box($border-color) {
-  border: 10px solid $border-color;
-  padding: 10px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+.button2 {
+  @include button;
+  transition: all 1s linear;
+  &:hover,
+  &:focus {
+    color: black;
+    background-color: white;
+    font-size: larger;
+  }
 }
-.alert-winning-user {
-  @include dialog-box(green);
+.button3 {
+  @include button;
+  transition: all 2s linear;
+  &:hover,
+  &:focus {
+    color: black;
+    background-color: white;
+    transform: translate(100px);
+  }
 }
